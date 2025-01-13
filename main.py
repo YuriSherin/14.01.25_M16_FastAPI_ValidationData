@@ -29,7 +29,7 @@ async def read_user(user_id:Annotated[int, Path(ge=1, le=100, description='Enter
 
 @app.get('/user/{username}/{age}')
 async def read_user_info(username:Annotated[str, Path(min_length=5, max_length=20, description='Enter username')],
-                         age:Annotated[int, Path(ge=20, le=120, description='Enter age')]) -> str:
+                         age:Annotated[int, Path(ge=18, le=120, description='Enter age')]) -> str:
     """Маршрутизация с динамическими параметрами и валидацией возвращаемых данных"""
     user_info = {'username': username, 'age': age}
     return f'Информация о пользователе. Имя: {user_info["username"]}, Возраст: {user_info["age"]}'
